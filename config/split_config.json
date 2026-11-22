@@ -1,0 +1,39 @@
+{
+  "method": "chronological by TARGET date, no random shuffling",
+  "boundaries": {
+    "train": {
+      "start": "2015-01-01",
+      "end": "2022-12-31"
+    },
+    "validation": {
+      "start": "2023-01-01",
+      "end": "2024-12-31"
+    },
+    "test": {
+      "start": "2025-01-01",
+      "end": "2025-12-31"
+    }
+  },
+  "row_counts": {
+    "train": 8754,
+    "validation": 2193,
+    "test": 1095
+  },
+  "row_counts_by_horizon": {
+    "train": {
+      "1": 2919,
+      "2": 2918,
+      "3": 2917
+    },
+    "validation": {
+      "1": 731,
+      "2": 731,
+      "3": 731
+    },
+    "test": {
+      "1": 365,
+      "2": 365,
+      "3": 365
+    }
+  }
+}

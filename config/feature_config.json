@@ -1,0 +1,103 @@
+{
+  "feature_columns_in_order": [
+    "tmax_d0",
+    "tmax_d1",
+    "tmax_d2",
+    "humidity_d0",
+    "humidity_d1",
+    "humidity_d2",
+    "wind_d0",
+    "wind_d1",
+    "wind_d2",
+    "solar_d0",
+    "solar_d1",
+    "solar_d2",
+    "month_sin",
+    "month_cos",
+    "day_sin",
+    "day_cos",
+    "tmax_mean_3d",
+    "tmax_trend_3d",
+    "humidity_mean_3d",
+    "solar_sum_3d",
+    "forecast_horizon"
+  ],
+  "n_features": 21,
+  "feature_groups": {
+    "historical_weather": [
+      "tmax_d0",
+      "tmax_d1",
+      "tmax_d2",
+      "humidity_d0",
+      "humidity_d1",
+      "humidity_d2",
+      "wind_d0",
+      "wind_d1",
+      "wind_d2",
+      "solar_d0",
+      "solar_d1",
+      "solar_d2"
+    ],
+    "seasonal": [
+      "month_sin",
+      "month_cos",
+      "day_sin",
+      "day_cos"
+    ],
+    "recent_pattern": [
+      "tmax_mean_3d",
+      "tmax_trend_3d",
+      "humidity_mean_3d",
+      "solar_sum_3d"
+    ],
+    "horizon": [
+      "forecast_horizon"
+    ]
+  },
+  "feature_definitions": {
+    "tmax_d0": "tmax on day T",
+    "tmax_d1": "tmax on day T-1",
+    "tmax_d2": "tmax on day T-2",
+    "humidity_d0": "humidity on day T",
+    "humidity_d1": "humidity on day T-1",
+    "humidity_d2": "humidity on day T-2",
+    "wind_d0": "wind on day T",
+    "wind_d1": "wind on day T-1",
+    "wind_d2": "wind on day T-2",
+    "solar_d0": "solar on day T",
+    "solar_d1": "solar on day T-1",
+    "solar_d2": "solar on day T-2",
+    "month_sin": "sin(2*pi*(month-1)/12) of TARGET date",
+    "month_cos": "cos(2*pi*(month-1)/12) of TARGET date",
+    "day_sin": "sin(2*pi*(day_of_year-1)/days_in_year) of TARGET date (365/366, leap-aware)",
+    "day_cos": "cos(2*pi*(day_of_year-1)/days_in_year) of TARGET date (365/366, leap-aware)",
+    "tmax_mean_3d": "mean(tmax_d0, tmax_d1, tmax_d2)",
+    "tmax_trend_3d": "tmax_d0 - tmax_d2",
+    "humidity_mean_3d": "mean of the 3 humidity values",
+    "solar_sum_3d": "sum of the 3 solar totals",
+    "forecast_horizon": "1, 2 or 3 = days ahead of the forecast origin"
+  },
+  "target": {
+    "name": "target_tmax",
+    "definition": "actual Tmax on forecast_origin + forecast_horizon days",
+    "unit": "°C",
+    "type": "continuous"
+  },
+  "metadata_columns_not_inputs": [
+    "forecast_origin",
+    "target_date"
+  ],
+  "input_window_days": 3,
+  "forecast_horizons": [
+    1,
+    2,
+    3
+  ],
+  "units": {
+    "tmax": "°C",
+    "humidity": "%",
+    "wind": "km/h",
+    "solar": "MJ/m²"
+  },
+  "scaling": "none (tree-based XGBoost does not need it)"
+}

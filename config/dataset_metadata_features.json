@@ -1,0 +1,17 @@
+{
+  "source_file": "delhi_daily_clean.csv",
+  "source_md5": "a6862fcb325fd6412e119280f00a4fe2",
+  "rows": 4018,
+  "first_date": "2015-01-01",
+  "last_date": "2025-12-31",
+  "frequency": "daily",
+  "timezone": "Asia/Kolkata",
+  "units": {
+    "tmax": "°C",
+    "humidity": "%",
+    "wind": "km/h",
+    "solar": "MJ/m²"
+  },
+  "generated_by": "02_model_training.ipynb",
+  "note": "Model-derived (ERA5 archive) estimates, not station observations. Archive (training) and operational Forecast (live) data may come from different model products - validate before live use."
+}

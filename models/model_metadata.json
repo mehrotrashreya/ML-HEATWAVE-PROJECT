@@ -1,0 +1,147 @@
+{
+  "model": "XGBRegressor (single pooled direct multi-horizon model)",
+  "target": {
+    "name": "target_tmax",
+    "unit": "°C"
+  },
+  "horizons": [
+    1,
+    2,
+    3
+  ],
+  "selected_features_in_order": [
+    "tmax_d0",
+    "tmax_d1",
+    "tmax_d2",
+    "humidity_d0",
+    "solar_d0",
+    "solar_d2",
+    "month_cos",
+    "day_sin",
+    "day_cos",
+    "tmax_mean_3d",
+    "humidity_mean_3d",
+    "solar_sum_3d",
+    "forecast_horizon"
+  ],
+  "all_candidate_features": [
+    "tmax_d0",
+    "tmax_d1",
+    "tmax_d2",
+    "humidity_d0",
+    "humidity_d1",
+    "humidity_d2",
+    "wind_d0",
+    "wind_d1",
+    "wind_d2",
+    "solar_d0",
+    "solar_d1",
+    "solar_d2",
+    "month_sin",
+    "month_cos",
+    "day_sin",
+    "day_cos",
+    "tmax_mean_3d",
+    "tmax_trend_3d",
+    "humidity_mean_3d",
+    "solar_sum_3d",
+    "forecast_horizon"
+  ],
+  "dropped_features": [
+    "humidity_d1",
+    "humidity_d2",
+    "wind_d0",
+    "wind_d1",
+    "wind_d2",
+    "solar_d1",
+    "month_sin",
+    "tmax_trend_3d"
+  ],
+  "feature_selection": {
+    "chosen_set": "top 12 by permutation importance (+horizon)",
+    "rule": "smallest set within 0.01 °C validation MAE of the best",
+    "decided_on": "train + validation only"
+  },
+  "hyper_parameters": {
+    "max_depth": 3,
+    "learning_rate": 0.08,
+    "min_child_weight": 5,
+    "subsample": 0.7,
+    "colsample_bytree": 0.5,
+    "reg_lambda": 10.0,
+    "reg_alpha": 0.1,
+    "gamma": 0.5
+  },
+  "n_estimators": 103,
+  "seed": 42,
+  "trained_on": {
+    "split": "train + validation",
+    "rows": 10947,
+    "target_dates": "2015-01-04 to 2024-12-31"
+  },
+  "metrics": {
+    "validation_all_horizons": {
+      "n": 2193.0,
+      "MAE (°C)": 1.5577832572926575,
+      "MSE (°C²)": 4.20564444909875,
+      "RMSE (°C)": 2.050766795395993,
+      "R²": 0.9143232714134342,
+      "MedAE (°C)": 1.2019905090332017,
+      "Max error (°C)": 8.14955368041992,
+      "Bias (°C)": 0.07570674546603143
+    },
+    "test_all_horizons": {
+      "n": 1095.0,
+      "MAE (°C)": 1.5237552383283501,
+      "MSE (°C²)": 4.14705916677441,
+      "RMSE (°C)": 2.036432951701187,
+      "R²": 0.895397286473811,
+      "MedAE (°C)": 1.142934036254882,
+      "Max error (°C)": 7.199687957763672,
+      "Bias (°C)": 0.07198254711551746
+    },
+    "test_by_horizon": {
+      "h=1": {
+        "n": 365.0,
+        "MAE (°C)": 1.2718686947757252,
+        "MSE (°C²)": 3.0588384337885257,
+        "RMSE (°C)": 1.7489535253369444,
+        "R²": 0.9228458559318445,
+        "MedAE (°C)": 0.9154220581054702,
+        "Max error (°C)": 6.715077209472657,
+        "Bias (°C)": 0.08686212827081538
+      },
+      "h=2": {
+        "n": 365.0,
+        "MAE (°C)": 1.566263949773083,
+        "MSE (°C²)": 4.269367170989874,
+        "RMSE (°C)": 2.06624470259209,
+        "R²": 0.8923122692091886,
+        "MedAE (°C)": 1.2269157409667955,
+        "Max error (°C)": 7.120699310302733,
+        "Bias (°C)": 0.0719071850711351
+      },
+      "h=3": {
+        "n": 365.0,
+        "MAE (°C)": 1.7331330704362424,
+        "MSE (°C²)": 5.11297189554483,
+        "RMSE (°C)": 2.261188160137239,
+        "R²": 0.8710337342804001,
+        "MedAE (°C)": 1.3657997131347628,
+        "Max error (°C)": 7.199687957763672,
+        "Bias (°C)": 0.05717832800460178
+      }
+    }
+  },
+  "heatwave_rule": {
+    "type": "simplified absolute temperature (not the full IMD definition)",
+    "heatwave_c": 45.0,
+    "severe_c": 47.0
+  },
+  "versions": {
+    "xgboost": "3.4.1",
+    "python": "3.14.6"
+  },
+  "trained_at": "2026-11-22 19:22",
+  "caveat": "Trained on Open-Meteo Archive (ERA5) data; live inputs come from the operational Forecast API, a possibly different model product - check live-input compatibility before trusting live forecasts."
+}

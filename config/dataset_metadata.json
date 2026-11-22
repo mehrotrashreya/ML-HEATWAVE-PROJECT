@@ -1,0 +1,108 @@
+{
+  "source": "Open-Meteo Historical Weather Archive API",
+  "source_model": "era5",
+  "api_url": "https://archive-api.open-meteo.com/v1/archive",
+  "request_params": {
+    "latitude": 28.61,
+    "longitude": 77.21,
+    "start_date": "2015-01-01",
+    "end_date": "2025-12-31",
+    "daily": "temperature_2m_max,relative_humidity_2m_mean,wind_speed_10m_max,shortwave_radiation_sum",
+    "timezone": "Asia/Kolkata",
+    "temperature_unit": "celsius",
+    "wind_speed_unit": "kmh",
+    "models": "era5"
+  },
+  "variables": {
+    "temperature_2m_max": {
+      "internal_name": "tmax",
+      "unit": "°C"
+    },
+    "relative_humidity_2m_mean": {
+      "internal_name": "humidity",
+      "unit": "%"
+    },
+    "wind_speed_10m_max": {
+      "internal_name": "wind",
+      "unit": "km/h"
+    },
+    "shortwave_radiation_sum": {
+      "internal_name": "solar",
+      "unit": "MJ/m²"
+    }
+  },
+  "api_reported_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "relative_humidity_2m_mean": "%",
+    "wind_speed_10m_max": "km/h",
+    "shortwave_radiation_sum": "MJ/m²"
+  },
+  "location": {
+    "name": "Central Delhi, India",
+    "latitude": 28.61,
+    "longitude": 77.21,
+    "grid_cell_returned": {
+      "latitude": 28.5,
+      "longitude": 77.25,
+      "elevation": 217.0
+    }
+  },
+  "timezone": "Asia/Kolkata",
+  "frequency": "daily",
+  "expected_rows": 4018,
+  "retrieval_date_utc": "2026-11-21 04:49:49",
+  "api_response_validation": [
+    {
+      "check": "'daily' object exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "'time' array exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all 4 variable arrays present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all arrays equal length",
+      "passed": true,
+      "detail": "{'time': 4018, 'temperature_2m_max': 4018, 'relative_humidity_2m_mean': 4018, 'wind_speed_10m_max': 4018, 'shortwave_radiation_sum': 4018}"
+    },
+    {
+      "check": "dates parse as YYYY-MM-DD",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "range covers requested period",
+      "passed": true,
+      "detail": "2015-01-01 -> 2025-12-31"
+    },
+    {
+      "check": "unit of temperature_2m_max",
+      "passed": true,
+      "detail": "API says '°C', expected '°C'"
+    },
+    {
+      "check": "unit of relative_humidity_2m_mean",
+      "passed": true,
+      "detail": "API says '%', expected '%'"
+    },
+    {
+      "check": "unit of wind_speed_10m_max",
+      "passed": true,
+      "detail": "API says 'km/h', expected 'km/h'"
+    },
+    {
+      "check": "unit of shortwave_radiation_sum",
+      "passed": true,
+      "detail": "API says 'MJ/m²', expected 'MJ/m²'"
+    }
+  ],
+  "disclaimer": "Values are model-derived (ERA5 reanalysis) estimates for the nearest grid cell, not physical weather-station observations. Historical Archive data and operational Forecast API data may come from different model products - validate before live use."
+}

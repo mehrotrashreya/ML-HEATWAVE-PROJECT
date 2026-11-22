@@ -1,0 +1,44 @@
+{
+  "imputation": {
+    "strategy": "median",
+    "fitted_on": "training split only",
+    "artifact": "models/imputer.joblib",
+    "statistics": {
+      "tmax_d0": 32.5,
+      "tmax_d1": 32.5,
+      "tmax_d2": 32.5,
+      "humidity_d0": 69.0,
+      "humidity_d1": 69.0,
+      "humidity_d2": 69.0,
+      "wind_d0": 13.1,
+      "wind_d1": 13.1,
+      "wind_d2": 13.1,
+      "solar_d0": 18.560000000000002,
+      "solar_d1": 18.560000000000002,
+      "solar_d2": 18.560000000000002,
+      "month_sin": 0.0,
+      "month_cos": -1.8369701987210297e-16,
+      "day_sin": 0.0,
+      "day_cos": 0.004303538296243821,
+      "tmax_mean_3d": 32.6,
+      "tmax_trend_3d": 0.10000000000000142,
+      "humidity_mean_3d": 69.66666666666667,
+      "solar_sum_3d": 54.7,
+      "forecast_horizon": 2.0
+    },
+    "missing_predictor_rows": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "missing_targets": "rows removed, never filled"
+  },
+  "scaling": "none",
+  "heatwave_rule": {
+    "type": "simplified absolute temperature (not the full IMD criteria)",
+    "No Heatwave (0)": "Tmax < 45.0",
+    "Heatwave (1)": "45.0 <= Tmax < 47.0",
+    "Severe Heatwave (2)": "Tmax >= 47.0",
+    "used_as_regression_target": false
+  }
+}

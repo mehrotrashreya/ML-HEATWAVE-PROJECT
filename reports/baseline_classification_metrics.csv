@@ -1,0 +1,5 @@
+split,baseline,accuracy,macro precision,macro recall,macro F1,weighted F1,total support
+validation,Persistence (tmax_d0),0.9845,0.7127,0.7127,0.7127,0.9845,2193
+validation,3-day mean (tmax_mean_3d),0.9822,0.6373,0.5965,0.6131,0.9807,2193
+test,Persistence (tmax_d0),1.0,1.0,1.0,1.0,1.0,1095
+test,3-day mean (tmax_mean_3d),1.0,1.0,1.0,1.0,1.0,1095

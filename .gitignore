@@ -1,0 +1,28 @@
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Sensitive files
+*.key
+credentials.json
+secrets.toml
+.streamlit/secrets.toml

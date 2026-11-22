@@ -1,0 +1,5 @@
+model,accuracy,macro_F1,recall_High,recall_VeryHigh
+XGBoost (real only) [FINAL],0.846,0.705,0.66,0.743
+Persistence,0.86,0.699,0.64,0.56
+Logistic Regression,0.844,0.706,0.627,0.795
+XGBoost (real + 2x synthetic),0.84,0.7,0.642,0.799
